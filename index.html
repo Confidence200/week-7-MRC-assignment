@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mortgage repayment calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="card">
+      <section class="calc">
+        <div class="calc-head">
+          <h1>Mortgage Calculator</h1>
+          <button type="button" id="clear" class="link-btn">Clear All</button>
+        </div>
+
+        <form id="form" novalidate>
+          <div class="field">
+            <label for="amount">Mortgage Amount</label>
+            <div class="input-wrap">
+              <span class="affix prefix">£</span>
+              <input
+                type="text"
+                id="amount"
+                inputmode="decimal"
+                autocomplete="off"
+              />
+            </div>
+            <p class="error" hidden>This field is required</p>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="term">Mortgage Term</label>
+              <div class="input-wrap">
+                <input
+                  type="text"
+                  id="term"
+                  inputmode="decimal"
+                  autocomplete="off"
+                />
+                <span class="affix suffix">years</span>
+              </div>
+              <p class="error" hidden>This field is required</p>
+            </div>
+            <div class="field">
+              <label for="rate">Interest Rate</label>
+              <div class="input-wrap">
+                <input
+                  type="text"
+                  id="rate"
+                  inputmode="decimal"
+                  autocomplete="off"
+                />
+                <span class="affix suffix">%</span>
+              </div>
+              <p class="error" hidden>This field is required</p>
+            </div>
+          </div>
+
+          <fieldset class="field" id="type-field">
+            <legend>Mortgage Type</legend>
+            <label class="option"
+              ><input type="radio" name="type" value="repayment" /><span
+                >Repayment</span
+              ></label
+            >
+            <label class="option"
+              ><input type="radio" name="type" value="interest" /><span
+                >Interest Only</span
+              ></label
+            >
+            <p class="error" hidden>This field is required</p>
+          </fieldset>
+
+          <button type="submit" class="submit">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <rect
+                x="4"
+                y="2.5"
+                width="16"
+                height="19"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <rect
+                x="7"
+                y="5.5"
+                width="10"
+                height="4"
+                rx="0.5"
+                fill="currentColor"
+              />
+              <circle cx="8" cy="13" r="1.1" fill="currentColor" />
+              <circle cx="12" cy="13" r="1.1" fill="currentColor" />
+              <circle cx="16" cy="13" r="1.1" fill="currentColor" />
+              <circle cx="8" cy="17" r="1.1" fill="currentColor" />
+              <circle cx="12" cy="17" r="1.1" fill="currentColor" />
+              <circle cx="16" cy="17" r="1.1" fill="currentColor" />
+            </svg>
+            Calculate Repayments
+          </button>
+        </form>
+      </section>
+
+      <section class="results" aria-live="polite">
+        <div id="empty" class="empty">
+          <img src="./assets/images/illustration-empty.svg" alt="" />
+          <h2>Results shown here</h2>
+          <p>
+            Complete the form and click "calculate repayments" to see what your
+            monthly repayments would be.
+          </p>
+        </div>
+
+        <div id="filled" class="filled" hidden>
+          <h2>Your results</h2>
+          <p>
+            Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click "calculate
+            repayments" again.
+          </p>
+          <div class="result-box">
+            <p class="label">Your monthly repayments</p>
+            <p class="monthly" id="monthly">£0.00</p>
+            <hr />
+            <p class="label">Total you'll repay over the term</p>
+            <p class="total" id="total">£0.00</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <p class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/Confidence200">Confidence</a>.
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>
